@@ -5,7 +5,7 @@ FROM adoptopenjdk/openjdk17:alpine
 WORKDIR /rapp
 
 # Copia el archivo JAR construido en el directorio de trabajo
-COPY target/tu-aplicacion.jar /app/app.jar
+COPY target/tareas.jar /app/app.jar
 
 # Expone el puerto 8080
 EXPOSE 8080
