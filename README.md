@@ -1,3 +1,5 @@
+<img src="arquitectura (1).jpg" />
+
 # Nombre del Proyecto
 
 Api backend
