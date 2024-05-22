@@ -1,14 +1,6 @@
-# Usa la imagen base de OpenJDK 17
-FROM adoptopenjdk/openjdk17:alpine
-
-# Establece el directorio de trabajo en /app
-WORKDIR /rapp
-
-# Copia el archivo JAR construido en el directorio de trabajo
-COPY target/tareas.jar /app/app.jar
-
-# Expone el puerto 8080
-EXPOSE 8080
-
-# Comando para ejecutar la aplicación Spring Boot cuando se inicie el contenedor
-CMD ["java", "-jar", "app.jar"]
+FROM openjdk:17-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["sh", "-c", "java -jar /app.jar --spring.profiles.active=prod && tail -f /dev/null"]
+EXPOSE 8787
